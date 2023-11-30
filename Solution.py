@@ -27,8 +27,14 @@ class Solution:
         #The tolerance for bandwidth, i.e. the limit at which we start increasing the bandwidth of a node
         bandwidth_tol = 0
 
-        #A map that maps the # of each node for every path
-        #Will keep track of how many packets are at each node at a time
-        band_map = {}
+        #A list of maps that maps the # of each node for every path.
+        #Will keep track of how many packets are at each node at a time.
+        #index corresponds to step in path, i.e. the isp node should be index 0 (we will ignore this node).
+        #the lengnth of this list is probably gonna need to at least be the length of the longest path.
+        #to stave time and space only a node that is used will need to be in the map
+        band_list = []
+
+        #This list will be populated and once a node has more nodes than bandwidth_tol we increase the bandwidth.
+        #Once it goes through all of the paths we return. 
 
         return (paths, bandwidths, priorities)
